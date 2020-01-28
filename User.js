@@ -5,8 +5,8 @@ export default class User extends Component
     {
         return(
             <div>
-                <h3>Prime member</h3>
-                
+                <h1>Hello User</h1>
+                <button onClick={this.props.clickdata}>Logout</button>
             </div>
             )
     }

@@ -1,16 +1,28 @@
 import React,{Component} from "react";
 //import Guest from "./Guest";
 import User from "./User";
+import Guest from "./Guest";
 export default class App extends Component
 {
+    state={
+        islogged:false
+    }
+    clickLogin=()=>{
+        this.setState({islogged:true});
+    }
+    
+    clickLogout=()=>{
+        this.setState({islogged:false});
+    }
     render()
     {
-        const isprime=this.props.prime;
-        return(
-            <>
-            <h3>Welcome User</h3>
-            {isprime && <User/>}
-            </>
-            )
+        const islogged=this.state.islogged;
+        if(islogged)
+        {
+            return <User name={"Aman"} clickdata={this.clickLogout}/>
+        }
+        else{
+            return <Guest clickdata={this.clickLogin}/>
+        }
         }
 }
