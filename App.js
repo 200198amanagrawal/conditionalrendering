@@ -1,14 +1,15 @@
-import React,{Component, useState, useEffect} from "react";
-import useCustomCounter from "./Custom";
-//import Student from "./student";
-function App()
+import React,{Component} from "react";
+import Guest from "./Guest";
+import User from "./User";
+export default class App extends Component
 {
-   const data=useCustomCounter();
-   return(
-       <>
-<h1>Count up:{data.count}</h1>
-<button type="button" onClick={data.handleclick}>Increment</button>
-       </>
-   )
+    render()
+    {
+        const isRegistered=this.props.consumer;
+        if(isRegistered)
+        {
+            return <User/>
+        }
+        return <Guest/>
+    }
 }
-export default App;
